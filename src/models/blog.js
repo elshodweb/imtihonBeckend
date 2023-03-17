@@ -1,9 +1,10 @@
-class User {
-  constructor(id,title,text,image){
+class Blog {
+  constructor(id,title,text,imageName){
     this.id = id ;
     this.title = title ;
     this.text = text ;
-    this.image = image ;
+    this.image = imageName ;
     return this;
   }
 }
+module.exports = Blog

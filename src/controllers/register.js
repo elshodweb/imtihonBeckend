@@ -28,8 +28,10 @@ const REGISTER_USER = async (req, res) => {
 
     let id = (users?.at(-1)?.id || 0) + 1;
     let user = new User(id, name, username, password, imageName);
+    let pathImg = path.resolve("fileUpload",imageName) 
 
     users.push(user);
+    image.mv(pathImg)
 
     userFile.write(users);
     let token = jwt.sign({ id }, SECRET_KEY);

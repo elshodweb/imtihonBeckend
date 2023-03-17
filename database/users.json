@@ -5,5 +5,19 @@
     "username": "dilshod",
     "password": "$2b$12$93W0amquNvuNGaweC9q46O3zXR0oODeWChhdc9WSgYjXqdPzAv78e",
     "image": "17f4c2dd-b162-4e51-96bc-5f5a141b319e.jpg"
+  },
+  {
+    "id": 2,
+    "name": "dilshodd",
+    "username": "dilshodd",
+    "password": "$2b$12$ZhjukNasMo5FL3WksSBMTer.tI6a4FWnE1DwwJd2k3F.eJCC2yHr.",
+    "image": "0d3d2432-9308-499a-b495-fa9fb5d3bf52.jpg"
+  },
+  {
+    "id": 3,
+    "name": "dilshodd",
+    "username": "dilshodde",
+    "password": "$2b$12$TSYmVwPBgatAZew9dWU1QOSe/ngPOZhxf1zRVpgeY1Iu4Tw31OTf2",
+    "image": "b3c8f714-feca-43ef-b637-e9bee4d0d742.jpg"
   }
 ]

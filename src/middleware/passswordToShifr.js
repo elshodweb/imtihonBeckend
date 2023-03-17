@@ -1,4 +1,4 @@
-let bcrypt = require("bcrypt")
+let bcrypt = require("bcrypt");
 
 const toShifr = async (req, res, next) => {
   try {
