@@ -6,7 +6,6 @@ let { SECRET_KEY } = require("../config");
 let User = require("../models/user");
 let jwt = require("jsonwebtoken");
 
-
 const REGISTER_USER = async (req, res) => {
   try {
     let { name, username, password } = req.body;
@@ -28,10 +27,10 @@ const REGISTER_USER = async (req, res) => {
 
     let id = (users?.at(-1)?.id || 0) + 1;
     let user = new User(id, name, username, password, imageName);
-    let pathImg = path.resolve("fileUpload",imageName) 
+    let pathImg = path.resolve("fileUpload", imageName);
 
     users.push(user);
-    image.mv(pathImg)
+    image.mv(pathImg);
 
     userFile.write(users);
     let token = jwt.sign({ id }, SECRET_KEY);
