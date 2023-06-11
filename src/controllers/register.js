@@ -1,10 +1,16 @@
-let IO = require("../libs/IO");
+let jwt = require("jsonwebtoken");
+let joi = require("joi");
 let path = require("path");
-let userFile = new IO(path.resolve("database", "users.json"));
 let uuid = require("uuid").v4;
 let { SECRET_KEY } = require("../config");
 let User = require("../models/user");
-let jwt = require("jsonwebtoken");
+let IO = require("../libs/IO");
+let userFile = new IO(path.resolve("database", "users.json"));
+
+let scheme = new joi.object({
+  username: joi.string().alphanum().min(5).max(32).required(),
+  name: joi.string().min(2).max(32).required(),
+});
 
 const REGISTER_USER = async (req, res) => {
   try {
@@ -14,6 +20,10 @@ const REGISTER_USER = async (req, res) => {
 
     if (!(name && password && username && image)) {
       throw new Error("malumotlar toliq emas yuborilmagan!");
+    }
+    let { error } = scheme.validate({ username, name });
+    if (error) {
+      throw new Error(error.message);
     }
 
     let findIndex = users.findIndex((u) => u.username == username);
@@ -34,7 +44,8 @@ const REGISTER_USER = async (req, res) => {
 
     userFile.write(users);
     let token = jwt.sign({ id }, SECRET_KEY);
-    res.cookie(token, token);
+
+    res.cookie("token", token);
     res.status(200).json({ message: "success", token });
   } catch (err) {
     res.status(400).json({ status: 400, message: err.message });

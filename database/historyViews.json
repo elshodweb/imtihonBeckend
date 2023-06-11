@@ -1,22 +1,30 @@
 [
   {
     "blog_id": 1,
-    "views_users": []
+    "views_users": [
+      1,
+      2,
+      3
+    ]
   },
   {
     "blog_id": 2,
-    "views_users": []
+    "views_users": [
+      2,
+      3
+    ]
   },
   {
     "blog_id": 3,
-    "views_users": []
+    "views_users": [
+      3,
+      1
+    ]
   },
   {
     "blog_id": 4,
-    "views_users": []
-  },
-  {
-    "blog_id": 5,
-    "views_users": []
+    "views_users": [
+      1
+    ]
   }
 ]
